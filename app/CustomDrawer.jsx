@@ -34,6 +34,11 @@ export default function CustomDrawer(props) {
             label="Inicio sesion"
             onPress={() => router.push("/Login")}
           />
+
+          <DrawerItem
+            label="Mapa Albergues"
+            onPress={() => router.push("/map/AlberguesMap")}
+          />
         </>
       )}
     </DrawerContentScrollView>
