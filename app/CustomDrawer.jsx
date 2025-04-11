@@ -39,6 +39,11 @@ export default function CustomDrawer(props) {
             label="Mapa Albergues"
             onPress={() => router.push("/map/AlberguesMap")}
           />
+
+          <DrawerItem
+            label="Registro de voluntario"
+            onPress={() => router.push("/volunteer/register")}
+          />
         </>
       )}
     </DrawerContentScrollView>
