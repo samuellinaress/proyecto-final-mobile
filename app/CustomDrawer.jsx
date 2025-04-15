@@ -44,6 +44,11 @@ export default function CustomDrawer(props) {
             label="Registro de voluntario"
             onPress={() => router.push("/volunteer/register")}
           />
+
+          <DrawerItem
+            label="Acerca de"
+            onPress={() => router.push("/acerca-de/AcercaDe")}
+          />
         </>
       )}
     </DrawerContentScrollView>
