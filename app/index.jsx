@@ -19,6 +19,7 @@ const sliderImages = [
   require("../assets/images/slider5.jpg"),
 ];
 
+//home
 export default function Index() {
   const scrollRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
