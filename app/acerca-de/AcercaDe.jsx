@@ -5,44 +5,44 @@ import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 const developers = [
   {
     nombre: 'Samuel Linares',
-    rol: '2023-0215',
+    matricula: '2023-0215',
     telefono: '+18098645478',
-    telegram: 'https://t.me/juanp_dev',
+    telegram: 'https://t.me/samuellinares',
     foto: require('../../assets/images/Samuel.jpg'), // ← Imagen local
   },
   {
     nombre: 'Kiara Custodio',
-    rol: '2023-0276',
+    matricula: '2023-0276',
     telefono: '+18297141418',
-    telegram: 'https://t.me/gabriel_z14',
+    telegram: 'https://t.me/KiaNic_23',
     foto: require('../../assets/images/Kiara.jpg'), // ← Imagen local
   },
   {
     nombre: 'Miguel Acosta',
-    rol: ' 2023-1050',
+    matricula: ' 2023-1050',
     telefono: '+18294092014',
-    telegram: 'https://t.me/juanp_dev',
+    telegram: 'https://t.me/miguelac27',
     foto: require('../../assets/images/Miguel.jpg'), // ← Imagen local
   },
   {
     nombre: 'Huascar Espinal',
-    rol: '2023-0664',
+    matricula: '2023-0664',
     telefono: '+18297057166',
-    telegram: 'https://t.me/juanp_dev',
+    telegram: 'https://t.me/huascar22',
     foto: require('../../assets/images/Huascar.jpg'), // ← Imagen local
   },
   {
     nombre: 'Ninel Feliz',
-    rol: '2023-0245',
+    matricula: '2023-0245',
     telefono: '+18496215558',
-    telegram: 'https://t.me/juanp_dev',
+    telegram: 'https://t.me/nini1802',
     foto: require('../../assets/images/Ninel.jpg'), // ← Imagen local
   },
   {
     nombre: 'Wilme Gonzalez',
-    rol: '2023-0651',
+    matricula: '2023-0651',
     telefono: '+18297310444',
-    telegram: 'https://t.me/juanp_dev',
+    telegram: 'https://t.me/wilmegm',
     foto: require('../../assets/images/Wilme.jpg'), // ← Imagen local
   }
 ];
@@ -57,7 +57,7 @@ export default function AcercaDe() {
         <View key={index} style={styles.card}>
           <Image source={dev.foto} style={styles.avatar} />
           <Text style={styles.name}>{dev.nombre}</Text>
-          <Text style={styles.role}>{dev.rol}</Text>
+          <Text style={styles.role}>{dev.matricula}</Text>
 
           <View style={styles.actions}>
             <TouchableOpacity onPress={() => Linking.openURL(`tel:${dev.telefono}`)} style={styles.button}>
@@ -66,7 +66,7 @@ export default function AcercaDe() {
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => Linking.openURL(dev.telegram)} style={[styles.button, styles.telegram]}>
-              <MaterialCommunityIcons name="telegram" size={24} color="white" />
+              <MaterialCommunityIcons name="send" size={24} color="white" />
               <Text style={styles.buttonText}>Telegram</Text>
             </TouchableOpacity>
           </View>
