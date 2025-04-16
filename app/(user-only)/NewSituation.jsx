@@ -13,6 +13,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import AuthContext from "../store/AuthContext";
 import * as ImagePicker from "expo-image-picker";
 import * as Location from "expo-location";
+import * as ImageManipulator from "expo-image-manipulator";
 
 export default function NewSituation() {
   const [response, setResponse] = useState({ type: null, message: "" });
@@ -57,9 +58,20 @@ export default function NewSituation() {
     });
 
     if (!resultado.canceled) {
+      const uri = resultado.assets[0].uri;
+
+      const imagenReducida = await ImageManipulator.manipulateAsync(
+        uri,
+        [{ resize: { width: 800 } }],
+        {
+          compress: 0.6,
+          format: ImageManipulator.SaveFormat.JPEG,
+          base64: true,
+        }
+      );
       setSituation({
         ...situation,
-        foto: `data:image/jpeg;base64,${resultado.assets[0].base64}`,
+        foto: `data:image/jpeg;base64,${imagenReducida.base64}`,
       });
     }
   }
@@ -74,7 +86,6 @@ export default function NewSituation() {
         type: "error",
         message: "Todos los campos son requeridos",
       });
-      console.log(situation);
       return;
     }
     setLoading(true);
@@ -86,7 +97,11 @@ export default function NewSituation() {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: `token=${situation.token}&titulo=${situation.titulo}&descripcion=${situation.descripcion}&foto=${situation.foto}&latitud=${situation.latitud}&longitud=${situation.longitud}`,
+        body: `token=${situation.token}&titulo=${
+          situation.titulo
+        }&descripcion=${situation.descripcion}&foto=${encodeURIComponent(
+          situation.foto
+        )}&latitud=${situation.latitud}&longitud=${situation.longitud}`,
       }
     );
 

@@ -7,8 +7,6 @@ export default function SituationDetail() {
   const { data } = useLocalSearchParams();
   const situation = JSON.parse(data);
 
-  console.log(situation.foto);
-
   return (
     <SafeAreaView style={styles.container}>
       <Image source={{ uri: situation.foto }} style={styles.image} />
@@ -33,10 +31,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   image: {
-    width: "100%",
-    height: 250,
+    width: 200,
+    height: 200,
     borderRadius: 10,
-    marginBottom: 20,
+    margin: 10,
+    borderWidth: 1,
+    borderColor: "#ccc",
   },
   textContainer: {
     backgroundColor: "#FFF",
