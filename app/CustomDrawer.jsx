@@ -11,6 +11,7 @@ export default function CustomDrawer(props) {
       <DrawerItem label="Inicio" onPress={() => router.push("/")} />
       <DrawerItem label="Historia" onPress={() => router.push("/Historia")} />
       <DrawerItem label="Services" onPress={() => router.push("/Services")} />
+      <DrawerItem label="News" onPress={() => router.push("/News")} />
       {user ? (
         <>
           <DrawerItem
