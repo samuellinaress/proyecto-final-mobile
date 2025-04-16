@@ -36,8 +36,8 @@ export default function Login() {
       "https://adamix.net/defensa_civil/def/iniciar_sesion.php",
       {
         method: "POST",
-        body: JSON.stringify(login),
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `cedula=${login.cedula}&clave=${login.clave}`,
       }
     );
 
@@ -50,7 +50,7 @@ export default function Login() {
     }
 
     loginUser(data.datos);
-    router.push("/index");
+    router.push("/");
     setLogin({ cedula: "", clave: "" });
   }
 

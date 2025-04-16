@@ -83,8 +83,10 @@ export default function NewSituation() {
       "https://adamix.net/defensa_civil/def/nueva_situacion.php",
       {
         method: "POST",
-        body: JSON.stringify(situation),
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `token=${situation.token}&titulo=${situation.titulo}&descripcion=${situation.descripcion}&foto=${situation.foto}&latitud=${situation.latitud}&longitud=${situation.longitud}`,
       }
     );
 
