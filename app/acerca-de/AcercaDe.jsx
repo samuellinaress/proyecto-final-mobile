@@ -1,6 +1,16 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, Linking, TouchableOpacity, ScrollView } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Linking,
+  TouchableOpacity,
+  ScrollView,
+  Platform,
+} from 'react-native';
 import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
+
 
 const developers = [
   {
@@ -29,29 +39,36 @@ const developers = [
     matricula: '2023-0664',
     telefono: '+18297057166',
     telegram: 'https://t.me/huascar22',
-    foto: require('../../assets/images/Huascar.jpg'), // ← Imagen local
+    foto: require('../../assets/images/Huascar.jpg'), 
   },
   {
     nombre: 'Ninel Feliz',
     matricula: '2023-0245',
     telefono: '+18496215558',
     telegram: 'https://t.me/nini1802',
-    foto: require('../../assets/images/Ninel.jpg'), // ← Imagen local
+    foto: require('../../assets/images/Ninel.jpg'), 
   },
   {
     nombre: 'Wilme Gonzalez',
     matricula: '2023-0651',
     telefono: '+18297310444',
     telegram: 'https://t.me/wilmegm',
-    foto: require('../../assets/images/Wilme.jpg'), // ← Imagen local
+    foto: require('../../assets/images/Wilme.jpg'), 
+  },
+  {
+    nombre: 'Gariel Encarnacion',
+    matricula: '2021-2298',
+    telefono: '+182995711462',
+    telegram: 'https://t.me/gabriel_z14',
+    foto: require('../../assets/images/Gabriel.jpg'), 
   }
 ];
 
 export default function AcercaDe() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Acerca de la App</Text>
-      <Text style={styles.subtitle}>Conoce a quienes hicieron esta app posible 👨‍💻👩‍🎨</Text>
+      <Text style={styles.title}>✨ Acerca de nosotros ✨</Text>
+      <Text style={styles.subtitle}>Conoce a quienes hicieron esta app posible</Text>
 
       {developers.map((dev, index) => (
         <View key={index} style={styles.card}>
@@ -61,12 +78,12 @@ export default function AcercaDe() {
 
           <View style={styles.actions}>
             <TouchableOpacity onPress={() => Linking.openURL(`tel:${dev.telefono}`)} style={styles.button}>
-              <FontAwesome name="phone" size={24} color="white" />
+              <FontAwesome name="phone" size={20} color="white" />
               <Text style={styles.buttonText}>Llamar</Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => Linking.openURL(dev.telegram)} style={[styles.button, styles.telegram]}>
-              <MaterialCommunityIcons name="send" size={24} color="white" />
+              <MaterialCommunityIcons name="send" size={20} color="white" />
               <Text style={styles.buttonText}>Telegram</Text>
             </TouchableOpacity>
           </View>
@@ -79,68 +96,71 @@ export default function AcercaDe() {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+    backgroundColor: '#f7f9fc',
     alignItems: 'center',
-    backgroundColor: '#fff',
   },
   title: {
-    fontSize: 26,
-    fontWeight: 'bold',
-    marginBottom: 5,
-    color: '#333',
+    fontSize: 28,
+    fontWeight: '700',
+    color: '#1f2937',
+    marginBottom: 6,
+    textAlign: 'center',
   },
   subtitle: {
     fontSize: 16,
-    color: '#555',
-    marginBottom: 20,
+    color: '#6b7280',
+    marginBottom: 25,
     textAlign: 'center',
   },
   card: {
-    backgroundColor: '#f0f4f8',
-    borderRadius: 10,
+    borderRadius: 16,
     padding: 20,
     width: '100%',
     alignItems: 'center',
     marginBottom: 30,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 3,
+    backgroundColor: 'transparent', // ← transparencia total
   },
   avatar: {
-    width: 100,
-    height: 100,
+    width: 110,
+    height: 110,
     borderRadius: 999,
     marginBottom: 15,
-    resizeMode: 'cover',
+    borderWidth: 2,
+    borderColor: '#3b82f6',
   },
   name: {
-    fontSize: 20,
-    fontWeight: '600',
-    color: '#222',
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#111827',
   },
   role: {
     fontSize: 16,
-    color: '#666',
+    color: '#6b7280',
     marginBottom: 15,
   },
   actions: {
     flexDirection: 'row',
-    gap: 10,
+    gap: 12,
   },
   button: {
-    backgroundColor: '#3b82f6',
-    paddingVertical: 8,
-    paddingHorizontal: 15,
-    borderRadius: 8,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    backgroundColor: '#3b82f6',
+    paddingVertical: 8,
+    paddingHorizontal: 14,
+    borderRadius: 10,
+    shadowColor: '#3b82f6',
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 3 },
   },
   telegram: {
-    backgroundColor: '#229ED9',
+    backgroundColor: '#0088cc',
+    shadowColor: '#0088cc',
   },
   buttonText: {
     color: 'white',
-    fontWeight: '500',
+    fontWeight: '600',
+    marginLeft: 6,
   },
 });
