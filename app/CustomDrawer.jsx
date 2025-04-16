@@ -9,6 +9,7 @@ export default function CustomDrawer(props) {
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItem label="Inicio" onPress={() => router.push("/")} />
+      <DrawerItem label="Historia" onPress={() => router.push("/Historia")} />
       {user ? (
         <>
           <DrawerItem
