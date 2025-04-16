@@ -24,8 +24,10 @@ export default function Situations() {
           "https://adamix.net/defensa_civil/def/situaciones.php",
           {
             method: "POST",
-            body: JSON.stringify({ token: user?.token ?? "" }),
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `token=${user.token}`,
           }
         );
 
@@ -45,7 +47,7 @@ export default function Situations() {
     }
 
     getSituations();
-  }, [user]);
+  }, []);
 
   if (loading) {
     return (

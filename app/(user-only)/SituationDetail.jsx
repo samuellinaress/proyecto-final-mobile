@@ -1,18 +1,25 @@
 import { useLocalSearchParams } from "expo-router";
 import { Image, Text, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import FastImage from "react-native-fast-image";
 
 export default function SituationDetail() {
   const { data } = useLocalSearchParams();
   const situation = JSON.parse(data);
+
+  console.log(situation.foto);
 
   return (
     <SafeAreaView style={styles.container}>
       <Image source={{ uri: situation.foto }} style={styles.image} />
       <View style={styles.textContainer}>
         <Text style={styles.title}>{situation.titulo}</Text>
-        <Text style={styles.description}>{situation.descripcion}</Text>
-        <Text style={styles.date}>{situation.fecha_creacion}</Text>
+        <Text style={styles.description}>Codigo: {situation.id}</Text>
+        <Text style={styles.description}>
+          Descripcion: {situation.descripcion}
+        </Text>
+        <Text style={styles.description}>Estado: {situation.estado}</Text>
+        <Text style={styles.date}>{situation.fecha}</Text>
       </View>
     </SafeAreaView>
   );

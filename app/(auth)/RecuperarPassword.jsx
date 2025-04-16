@@ -46,8 +46,10 @@ export default function RecuperarPassword() {
       "https://adamix.net/defensa_civil/def/recuperar_clave.php",
       {
         method: "POST",
-        body: JSON.stringify(login),
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `cedula=${login.cedula}&correo=${encodeURIComponent(
+          login.correo
+        )}`,
       }
     );
 

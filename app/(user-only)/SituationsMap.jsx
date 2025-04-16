@@ -18,8 +18,10 @@ export default function SituationsMap() {
           "https://adamix.net/defensa_civil/def/situaciones.php",
           {
             method: "POST",
-            body: JSON.stringify({ token: user.token }),
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `token=${user.token}`,
           }
         );
 
@@ -39,7 +41,7 @@ export default function SituationsMap() {
     }
 
     getSituations();
-  }, [user]);
+  }, []);
 
   if (loading) {
     return (
@@ -60,10 +62,10 @@ export default function SituationsMap() {
         <MapView
           style={styles.map}
           initialRegion={{
-            latitude: 18.4861, // Santo Domingo, RD (por defecto)
-            longitude: -69.9312,
-            latitudeDelta: 0.1,
-            longitudeDelta: 0.1,
+            latitude: 18.7357,
+            longitude: -70.1627,
+            latitudeDelta: 3.5,
+            longitudeDelta: 3.5,
           }}
         >
           {situations.map((situation) => (

@@ -36,8 +36,8 @@ export default function CambiarPassword() {
       "https://adamix.net/defensa_civil/def/cambiar_clave.php",
       {
         method: "POST",
-        body: JSON.stringify(password),
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `token=${password.token}&clave_nueva=${password.clave_nueva}&clave_anterior=${password.clave_anterior}`,
       }
     );
 
