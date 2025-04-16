@@ -55,7 +55,7 @@ const developers = [
     foto: require("../../assets/images/Wilme.jpg"),
   },
   {
-    nombre: "Gariel Encarnacion",
+    nombre: "Gabriel Encarnacion",
     matricula: "2021-2298",
     telefono: "+182995711462",
     telegram: "https://t.me/gabriel_z14",
