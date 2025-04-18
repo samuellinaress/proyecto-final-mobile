@@ -1,4 +1,7 @@
-import { View, Text, ScrollView, StyleSheet, Image } from "react-native";
+import { View, Text, ScrollView, StyleSheet, Image, Dimensions } from "react-native";
+import WebView from "react-native-webview";
+
+const { width } = Dimensions.get("window");
 
 export default function Historia() {
   return (
@@ -10,6 +13,14 @@ export default function Historia() {
         style={styles.image}
         resizeMode="contain"
       />
+
+      <View style={styles.videoContainer}>
+        <WebView
+          style={styles.video}
+          source={{ uri: "https://www.youtube.com/embed/WeEV2Ay0x_Q" }}
+          allowsFullscreenVideo
+        />
+      </View>
 
       <Text style={styles.text}>
         Antes del año 1966, cuando llegaba la temporada de huracanes,
@@ -69,5 +80,15 @@ const styles = StyleSheet.create({
     color: "#333",
     marginBottom: 15,
     textAlign: "justify",
+  },
+  video: {
+    flex: 1,
+  },
+  videoContainer: {
+    height: (width * 9) / 16,
+    width: "100%",
+    marginBottom: 20,
+    borderRadius: 10,
+    overflow: "hidden",
   },
 });
