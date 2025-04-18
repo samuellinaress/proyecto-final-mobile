@@ -65,6 +65,16 @@ export default function CustomDrawer(props) {
           />
 
           <DrawerItem
+            label="Medidas Preventivas"
+            onPress={() => router.push("/MedidasPreventivas")}
+          />
+          
+          <DrawerItem
+            label="Miembros"
+            onPress={() => router.push("/Miembros")}
+          />
+
+          <DrawerItem
             label="Registro de voluntario"
             onPress={() => router.push("/volunteer/register")}
           />
