@@ -45,8 +45,23 @@ export default function CustomDrawer(props) {
           />
 
           <DrawerItem
+            label="Videos"
+            onPress={() => router.push("/Videos")}
+          />
+
+          <DrawerItem
             label="Mapa Albergues"
             onPress={() => router.push("/map/AlberguesMap")}
+          />
+
+          <DrawerItem
+            label="Listado de Albergues"
+            onPress={() => router.push("/Albergues")}
+          />
+
+          <DrawerItem
+            label="Detalle de Albergues"
+            onPress={() => router.push("/DetalleAlbergue")}
           />
 
           <DrawerItem
